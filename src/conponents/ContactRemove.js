@@ -40,32 +40,43 @@ const ContactRemove = (props) => {
 
 
 
-
-    const mystyle = {
-        marginTop: '120px'
+    const myStyle1 = {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
     }
 
+
+    const myStyle = {
+        marginTop: '120px',
+        padding: '20px 16px 30px 16px',
+        backgroundColor: ' white',
+        width: '100%',
+        maxWidth: '700px',
+        boxShadow: '0 2px 8px rgba(0, 0, 0, 0.26)',
+        borderRadius: '12px'
+    };
 
 
 
     return (
-        <div className="ui cards centered" style={mystyle}>
-            <div className="card ">
+        <div className="ui cards centered" style={myStyle1}>
+            <div className="card " style={myStyle}>
                 <div className="content">
                     <img className="right floated mini ui image" src={user} />
                     <div className="header">
-                        {contact.name}
+                        <strong>{contact.name}</strong>
                     </div>
-                    <div className="meta">
-                        {contact.email}
+                    <div className="meta" style={{color:'grey'}}>
+                     <strong> {contact.email}</strong>
                     </div>
                     <div className="description">
-                        Are you sure you want to delete this contact
+                       <b> Are you sure you want to delete this contact</b>
                     </div>
                 </div>
                 <div className="extra content">
                     <div className="ui two buttons">
-                        <button className="ui basic green button" onClick={removeContactHandler}>Approve</button>
+                        <button className="ui basic green button" onClick={removeContactHandler} style={{marginRight:'52px'}}>Approve</button>
                         <Link to="/">
                             <div className="ui basic red button">Decline</div>
                         </Link>

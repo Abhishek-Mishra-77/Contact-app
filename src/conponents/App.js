@@ -34,11 +34,11 @@ function App() {
     });
   }
 
-  const updatContactHandler = async(contact , id) => {
-    const response = await api.put(`http://localhost:3006/contacts/${id}` , contact);
+  const updatContactHandler = async (contact, id) => {
+    const response = await api.put(`http://localhost:3006/contacts/${id}`, contact);
     console.log(response.data)
     setContacts(contacts.map((contact) => {
-        return contact.id === id  ? {...response.data} : contact;
+      return contact.id === id ? { ...response.data } : contact;
     }))
   }
 
@@ -56,11 +56,15 @@ function App() {
   }, [])
 
 
-
+  const myStyle = {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  }
 
 
   return (
-    <div className='ui container'>
+    <div className='ui container' style={myStyle} >
       <Router>
         <Header />
         <Routes>

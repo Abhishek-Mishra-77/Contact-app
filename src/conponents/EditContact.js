@@ -6,7 +6,7 @@ import { all } from 'axios';
 
 const EditContact = (props) => {
 
-    const {id} = useParams();
+    const { id } = useParams();
 
 
     // UseState for name and Email
@@ -21,15 +21,33 @@ const EditContact = (props) => {
             return;
         }
 
-        props.updatContactHandler({ name, email } , id);
+        props.updatContactHandler({ name, email }, id);
         setName('')
         setEmail('')
     }
 
+    const myStyle1 = {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }
+    
+
+    const myStyle = {
+        marginTop: '80px',
+        padding: '12px 16px 30px 16px',
+        backgroundColor: ' white',
+        width: '100%',
+        maxWidth: '700px',
+        boxShadow: '0 2px 8px rgba(0, 0, 0, 0.26)',
+        borderRadius: '12px'
+    };
+
+
 
     return (
-        <div className='ui main' >
-            <form onSubmit={OnUpdateHandler} className='ui form' style={{ marginTop: '77px' }}>
+        <div className='ui main container' style={myStyle1} >
+            <form onSubmit={OnUpdateHandler} className='ui form' style={myStyle} >
                 <h2>Edit Contact</h2>
                 <div className='field'>
                     <label>Name</label>
@@ -50,10 +68,11 @@ const EditContact = (props) => {
                         onChange={(event) => setEmail(event.target.value)}
                         placeholder='Email' />
                 </div>
+
                 <button className='ui button blue'>Edit</button>
 
                 <Link to='/'>
-                    <button className='ui button blue' style={{ float: 'right' }}>Back</button>
+                    <button className='ui button blue' style={{ marginLeft:'30px' }}>Back</button>
                 </Link>
 
             </form>

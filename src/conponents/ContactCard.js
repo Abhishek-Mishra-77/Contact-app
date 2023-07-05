@@ -5,9 +5,14 @@ import { Link } from 'react-router-dom';
 const ContactCard = (props) => {
    const { id, name, email } = props.contact;
 
+   const myStyle = {
+      marginTop: '20px',
+      display: 'flex',
+      color : 'white'
+   }
 
    return (
-      <div className='item' style={{ marginTop: '20px', display: 'flex' }}>
+      <div className='item' style={myStyle} >
 
          <img className='ui avatar image' src={user} alt='user' />
 
