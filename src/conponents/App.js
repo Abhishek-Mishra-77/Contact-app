@@ -12,6 +12,8 @@ function App() {
 
   // UseState for render contact list
   const [contacts, setContacts] = useState([])
+  const [searchTerm, setSearchterm] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
 
 
   // Getting data from axios 
@@ -19,6 +21,8 @@ function App() {
     const response = await api.get("http://localhost:3006/contacts");
     return response.data;
   }
+
+
 
 
   // Posting data from in axios  
@@ -34,13 +38,20 @@ function App() {
     });
   }
 
+
+
+
+
+
+  // This function main work is to Edit the Contact List
   const updatContactHandler = async (contact, id) => {
     const response = await api.put(`http://localhost:3006/contacts/${id}`, contact);
-    console.log(response.data)
     setContacts(contacts.map((contact) => {
       return contact.id === id ? { ...response.data } : contact;
     }))
   }
+
+
 
 
 
@@ -56,11 +67,35 @@ function App() {
   }, [])
 
 
+
+
+  // This function use to when we search contact then this will give use filter contact 
+  const searchHandler = (searchTerm) => {
+    setSearchterm(searchTerm);
+
+    if (searchTerm !== '') {
+      const newContactList = contacts.filter((contact) => {
+        return Object.values(contact)
+          .join(' ')
+          .toLowerCase()
+          .includes(searchTerm.toLowerCase())
+      });
+      setSearchResults(newContactList)
+    }
+    else {
+      setSearchResults(contacts);
+    }
+
+  }
+
+
   const myStyle = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
   }
+
+
 
 
   return (
@@ -81,7 +116,9 @@ function App() {
 
           <Route path='/'
             element={<ContactList
-              contacts={contacts}
+              contacts={ searchTerm.length < 1 ? contacts : searchResults}
+              searchTerm={searchTerm}
+              searchKeyword={searchHandler}
             />}></Route>
 
           <Route

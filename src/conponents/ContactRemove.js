@@ -67,16 +67,16 @@ const ContactRemove = (props) => {
                     <div className="header">
                         <strong>{contact.name}</strong>
                     </div>
-                    <div className="meta" style={{color:'grey'}}>
-                     <strong> {contact.email}</strong>
+                    <div className="meta" style={{ color: 'grey' }}>
+                        <strong> {contact.email}</strong>
                     </div>
                     <div className="description">
-                       <b> Are you sure you want to delete this contact</b>
+                        <b> Are you sure you want to delete this contact</b>
                     </div>
                 </div>
                 <div className="extra content">
                     <div className="ui two buttons">
-                        <button className="ui basic green button" onClick={removeContactHandler} style={{marginRight:'52px'}}>Approve</button>
+                        <button className="ui basic green button" onClick={removeContactHandler} style={{ marginRight: '52px' }}>Approve</button>
                         <Link to="/">
                             <div className="ui basic red button">Decline</div>
                         </Link>

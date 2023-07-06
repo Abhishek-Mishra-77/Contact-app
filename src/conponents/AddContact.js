@@ -17,9 +17,21 @@ const AddContact = (props) => {
         setEmail('');
     }
 
+
+
+    const myStyle = {
+        marginTop: '70px',
+        padding: '20px 16px 30px 16px',
+        backgroundColor: ' white',
+        width: '100%',
+        maxWidth: '700px',
+        boxShadow: '0 2px 8px rgba(0, 0, 0, 0.26)',
+        borderRadius: '12px'
+    };
+
     return (
-        <div className='ui main' >
-            <form onSubmit={OnSubmitHandler} className='ui form' style={{ marginTop: '77px' }}>
+        <div className='ui main' style={myStyle}>
+            <form onSubmit={OnSubmitHandler} className='ui form' >
                 <h2>Add Contact</h2>
                 <div className='field'>
                     <label>Name</label>

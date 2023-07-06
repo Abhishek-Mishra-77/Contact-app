@@ -26,6 +26,9 @@ const EditContact = (props) => {
         setEmail('')
     }
 
+
+    
+
     const myStyle1 = {
         display: 'flex',
         justifyContent: 'center',
