@@ -32,7 +32,7 @@ const ContactRemove = (props) => {
         const getAllContacts = async () => {
             const allContacts = await retrieveContacts();
             if (allContacts) {
-                setContact(allContacts.filter((contact) => contact.id == id)[0])
+                setContact(allContacts.filter((contact) => contact.id === id)[0])
             }
         }
         getAllContacts()

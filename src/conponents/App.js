@@ -34,6 +34,7 @@ function App() {
     const response = await api.post('http://localhost:3006/contacts', requests)
     setContacts((contacts) => {
       const newItems = [...contacts, response.data];
+      console.log(newItems)
       return newItems;
     });
   }

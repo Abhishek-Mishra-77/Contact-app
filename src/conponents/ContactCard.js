@@ -8,31 +8,38 @@ const ContactCard = (props) => {
    const myStyle = {
       marginTop: '20px',
       display: 'flex',
-      color : 'white'
-   }
+      justifyContent: 'space-between',
+      color: 'white'
+   };
+
 
    return (
       <div className='item' style={myStyle} >
 
-         <img className='ui avatar image' src={user} alt='user' />
+         <div style={{display:'flex'}}>
+            <img className='ui avatar image' src={user} alt='user' />
 
-         <div className='content'>
-            <div key={id}> </div>
+            <div className='content'>
+               <div key={id}> </div>
+               <div>
+                  <Link to={`/contact/${id}`}>
+                     <div className='header'>{name}</div>
+                     <div>{email}</div>
+                  </Link>
 
-            <Link to={`/contact/${id}`}>
-               <div className='header'>{name}</div>
-               <div>{email}</div>
+               </div>
+            </div>
+         </div>
+          
+         <div style={{marginLeft:'auto'}}>
+            <Link to={`/edit/${id}`}>
+               <i className='edit alternate outline icon' style={{ color: 'blue', marginTop: '7px' }}></i>
             </Link>
 
-
+            <Link to={`/contact/remove/${id}`}>
+               <i className='trash alternate outline icon' style={{ color: 'red', marginTop: '7px', marginLeft: '30px' }}></i>
+            </Link>
          </div>
-         <Link to={`/edit/${id}`}>
-            <i className='edit alternate outline icon' style={{ color: 'blue', marginTop: '7px', marginLeft: '77px' }}></i>
-         </Link>
-
-         <Link to={`/contact/remove/${id}`}>
-            <i className='trash alternate outline icon' style={{ color: 'red', marginTop: '7px', marginLeft: '77px' }}></i>
-         </Link>
 
       </div>
    )
